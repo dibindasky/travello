@@ -71,7 +71,7 @@ class _SideDrawerState extends State<SideDrawer> {
                                 borderRadius: BorderRadius.circular(50)),
                             height: SCREEN_WIDTH * 0.25,
                             width: SCREEN_WIDTH * 0.25,
-                            child: StreamBuilder(
+                            child:  StreamBuilder(
                               stream: FirebaseFirestore.instance
                                   .collection('users')
                                   .doc(currentUser!.uid)
