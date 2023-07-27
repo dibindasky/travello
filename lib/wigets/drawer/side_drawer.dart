@@ -9,6 +9,7 @@ import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/functions/login_functions.dart';
 import 'package:travelapp/functions/user_detail/user_detail_taker.dart';
 import 'package:travelapp/screens/admin/cred_firebase_admin_operations.dart';
+import 'package:travelapp/wigets/DialogeTerms/termsdialoge.dart';
 import 'package:travelapp/wigets/text_fields/buttons/button_login.dart';
 
 class SideDrawer extends StatefulWidget {
@@ -154,7 +155,15 @@ class _SideDrawerState extends State<SideDrawer> {
                 color: whiteSecondary,
                 visibleIcon: true,
                 icon: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TermsDialog(
+                              headline: 'Privacy Policy',
+                              fileName: 'privacy_policy.txt'),
+                        ));
+                  },
                   icon: const Icon(
                     Icons.shield_outlined,
                   ),
@@ -169,7 +178,15 @@ class _SideDrawerState extends State<SideDrawer> {
                 color: whiteSecondary,
                 visibleIcon: true,
                 icon: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TermsDialog(
+                              headline: 'Terms & Conditions',
+                              fileName: 'terms_and_conditions.txt'),
+                        ));
+                  },
                   icon: const Icon(
                     Icons.arrow_forward_ios,
                   ),
