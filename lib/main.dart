@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:travelapp/data_manageer/fetch_firebase_data.dart';
 import 'package:travelapp/firebase_options.dart';
 import 'package:travelapp/local_db/local_db.dart';
 import 'package:travelapp/screens/screen_splash.dart';

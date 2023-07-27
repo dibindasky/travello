@@ -75,9 +75,9 @@ class ScreenSignup extends StatelessWidget {
                           onTap: () {
                             if (formsignup.currentState!.validate()) {
                               LogAuth.addUser(
-                                  email: emailSignupControl.text,
-                                  password: passwordSignupControl.text,
-                                  name: nameSignupControl.text,
+                                  email: emailSignupControl.text.trim(),
+                                  password: passwordSignupControl.text.trim(),
+                                  name: nameSignupControl.text.trim(),
                                   context: context);
                               Navigator.push(
                                   context,

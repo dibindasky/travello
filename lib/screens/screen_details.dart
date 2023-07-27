@@ -19,7 +19,7 @@ class ScreenDetails extends StatelessWidget {
     final List img = destination.images;
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: SCREEN_HEIGHT * 0.10,
+        toolbarHeight: SCREEN_HEIGHT * 0.08,
         iconTheme: const IconThemeData(color: blueSecondary),
         title: Text(
           destination.catogory,
@@ -45,9 +45,9 @@ class ScreenDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              addVerticalSpace(20),
+              // addVerticalSpace(20),
               SizedBox(
-                height: SCREEN_HEIGHT * 0.40,
+                height: SCREEN_HEIGHT * 0.50,
                 width: SCREEN_WIDTH,
                 child: CarouselSlider.builder(
                   itemCount: img.length,
@@ -66,6 +66,8 @@ class ScreenDetails extends StatelessWidget {
                     );
                   },
                   options: CarouselOptions(
+                    aspectRatio: 1,
+                    viewportFraction: 1,
                     enlargeCenterPage: true,
                     height: double.infinity,
                     autoPlay: true,

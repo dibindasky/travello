@@ -79,6 +79,7 @@ flutter:
       - lib/constants/icons/
       - assets/images/map/
       - assets/images/catogorybackground/
+      - assets/images/policy/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

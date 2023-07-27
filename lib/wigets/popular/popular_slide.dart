@@ -46,17 +46,13 @@ class SlideShowListCard extends StatelessWidget {
                           width: SCREEN_WIDTH * 0.44,
                           child: Column(
                             children: [
+                              addVerticalSpace(SCREEN_HEIGHT * 0.015),
                               Row(
                                 children: [
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon:
-                                        const Icon(Icons.location_on_outlined),
-                                  ),
+                                  const Icon(Icons.location_on_outlined),
                                   Text(
                                     value[index].name.length > 18
-                                        ? value[index].name.substring(0, 16) +
-                                            '..'
+                                        ? '${value[index].name.substring(0, 16)}..'
                                         : value[index].name,
                                     style: const TextStyle(
                                         fontWeight: FontWeight.w500,
@@ -64,6 +60,7 @@ class SlideShowListCard extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                              addVerticalSpace(SCREEN_HEIGHT * 0.02),
                               Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),

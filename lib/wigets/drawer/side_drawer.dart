@@ -23,7 +23,7 @@ class SideDrawer extends StatefulWidget {
 class _SideDrawerState extends State<SideDrawer> {
   ReposatoryDestination reposatoryDestination = ReposatoryDestination();
   User? currentUser = currentUserDetail();
-  
+
   _onShare(context) async {
     final box = context.findRenderObject() as RenderBox?;
     await Share.share('flutter app',
@@ -65,48 +65,47 @@ class _SideDrawerState extends State<SideDrawer> {
                     Stack(
                       children: [
                         Container(
-                            margin: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: whiteSecondary,
-                                borderRadius: BorderRadius.circular(50)),
-                            height: SCREEN_WIDTH * 0.25,
-                            width: SCREEN_WIDTH * 0.25,
-                            child:  StreamBuilder(
-                              stream: FirebaseFirestore.instance
-                                  .collection('users')
-                                  .doc(currentUser!.uid)
-                                  .snapshots(),
-                              builder: (context, snapshot) {
-                                return !snapshot.hasData ||
-                                        snapshot.data!.get('profileimg') ==
-                                            '' ||
-                                        snapshot.data!.get('profileimg').isEmpty
-                                    ? Center(
-                                        child: Text(
-                                          currentUser!.email
-                                              .toString()
-                                              .toUpperCase()
-                                              .substring(0, 1),
-                                          style: TextStyle(
-                                            fontSize: SCREEN_WIDTH * 0.25,
-                                            color: blueSecondary,
-                                            fontWeight: FontWeight.w800,
-                                          ),
+                          margin: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              color: whiteSecondary,
+                              borderRadius: BorderRadius.circular(50)),
+                          height: SCREEN_WIDTH * 0.25,
+                          width: SCREEN_WIDTH * 0.25,
+                          child: StreamBuilder(
+                            stream: FirebaseFirestore.instance
+                                .collection('users')
+                                .doc(currentUser!.uid)
+                                .snapshots(),
+                            builder: (context, snapshot) {
+                              return !snapshot.hasData ||
+                                      snapshot.data!.get('profileimg') == '' ||
+                                      snapshot.data!.get('profileimg').isEmpty
+                                  ? Center(
+                                      child: Text(
+                                        currentUser!.email
+                                            .toString()
+                                            .toUpperCase()
+                                            .substring(0, 1),
+                                        style: TextStyle(
+                                          fontSize: SCREEN_WIDTH * 0.25,
+                                          color: blueSecondary,
+                                          fontWeight: FontWeight.w800,
                                         ),
-                                      )
-                                    : Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(50),
-                                            image: DecorationImage(
-                                                image:
-                                                    CachedNetworkImageProvider(
-                                                        snapshot.data!
-                                                            .get('profileimg')),
-                                                fit: BoxFit.cover)),
-                                      );
-                              },
-                            )),
+                                      ),
+                                    )
+                                  : Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        image: DecorationImage(
+                                            image: CachedNetworkImageProvider(
+                                              snapshot.data!.get('profileimg'),
+                                            ),
+                                            fit: BoxFit.cover),
+                                      ),
+                                    );
+                            },
+                          ),
+                        ),
                         Positioned(
                           right: 0,
                           bottom: 10,
@@ -155,8 +154,7 @@ class _SideDrawerState extends State<SideDrawer> {
                 color: whiteSecondary,
                 visibleIcon: true,
                 icon: IconButton(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   icon: const Icon(
                     Icons.shield_outlined,
                   ),
@@ -171,8 +169,7 @@ class _SideDrawerState extends State<SideDrawer> {
                 color: whiteSecondary,
                 visibleIcon: true,
                 icon: IconButton(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   icon: const Icon(
                     Icons.arrow_forward_ios,
                   ),
@@ -243,7 +240,7 @@ showDialogeBox(BuildContext context) {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text('exit')),
+            child: const Text('cancel')),
         TextButton(
             onPressed: () {
               LogAuth.signOut(context);

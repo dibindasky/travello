@@ -13,7 +13,6 @@ import 'package:travelapp/screens/trip_planner/trip_functions/fetch_trip.dart';
 import 'package:travelapp/screens/trip_planner/ui/calender.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/firebase_trip_planner.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/trip_list_maker.dart';
-import 'package:travelapp/wigets/text_fields/buttons/button_login.dart';
 import 'package:travelapp/wigets/text_fields/text_form_field.dart';
 
 class ScreenPlanningTrip extends StatelessWidget {

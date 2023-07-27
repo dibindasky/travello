@@ -47,7 +47,7 @@ class CatogeryContainer extends StatelessWidget {
           ),
           child: Center(
             child: SizedBox(
-              height: SCREEN_HEIGHT * 0.017,
+              height: SCREEN_HEIGHT * 0.020,
               child: FittedBox(
                 child: Text(
                   headLine,
