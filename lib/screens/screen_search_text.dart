@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/data_manageer/fetch_firebase_data.dart';
 import 'package:travelapp/model/model_maker.dart';
 import 'package:travelapp/screens/screen_details.dart';
 
 class SearchTextScreen extends StatefulWidget {
-
   const SearchTextScreen({super.key});
 
   @override
@@ -20,32 +20,30 @@ class _SearchTextScreenState extends State<SearchTextScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Search'),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Search'),
+      // ),
       body: SafeArea(
         child: Column(
           children: [
-            addVerticalSpace(10),
+            addVerticalSpace(20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: SCREEN_WIDTH * 0.75,
-                    child: TextField(
-                      onChanged: (value) => setState(() {
-                        searchValue = value;
-                      }),
-                      enabled: true,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50)),
-                      ),
-                    ),
-                  ),
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.search))
-                ],
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: whitePrimary,
+                    boxShadow: const [BoxShadow(spreadRadius: 1,blurRadius: 1,color: Colors.black26)]),
+                child: TextField(
+                  onChanged: (value) => setState(() {
+                    searchValue = value;
+                  }),
+                  decoration: const InputDecoration(
+                      label: Text('search'),
+                      prefixIcon: Icon(Icons.search),
+                      prefixIconColor: Colors.black,
+                      border: InputBorder.none),
+                ),
               ),
             ),
             Expanded(
@@ -63,7 +61,7 @@ class _SearchTextScreenState extends State<SearchTextScreen> {
                     itemCount: list.length,
                     itemBuilder: (context, index) {
                       DestinationModel data = list[index];
- 
+
                       return ListTile(
                         leading: CircleAvatar(
                             backgroundImage:
