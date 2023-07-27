@@ -46,13 +46,13 @@ class _SideDrawerState extends State<SideDrawer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                color: blueSecondary,
+                decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/catogorybackground/forestforcatogory.jpg'))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     addVerticalSpace(20),
                     Align(
-                      alignment: Alignment.centerRight,
+                      alignment: Alignment.topLeft,
                       child: IconButton(
                         onPressed: () {
                           widget.scaffoldkey.currentState!.closeDrawer();
@@ -96,6 +96,7 @@ class _SideDrawerState extends State<SideDrawer> {
                                     )
                                   : Container(
                                       decoration: BoxDecoration(
+                                        boxShadow: const [BoxShadow(blurRadius: 1,spreadRadius: 1,color: whiteSecondary)],
                                         borderRadius: BorderRadius.circular(50),
                                         image: DecorationImage(
                                             image: CachedNetworkImageProvider(
@@ -114,7 +115,7 @@ class _SideDrawerState extends State<SideDrawer> {
                             height: 30,
                             width: 30,
                             decoration: BoxDecoration(
-                                color: Color.fromARGB(127, 75, 86, 115),
+                                color: const Color.fromARGB(127, 75, 86, 115),
                                 borderRadius: BorderRadius.circular(50)),
                             child: IconButton(
                               onPressed: () async {
@@ -159,7 +160,7 @@ class _SideDrawerState extends State<SideDrawer> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TermsDialog(
+                          builder: (context) => const TermsDialog(
                               headline: 'Privacy Policy',
                               fileName: 'privacy_policy.txt'),
                         ));
@@ -182,7 +183,7 @@ class _SideDrawerState extends State<SideDrawer> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TermsDialog(
+                          builder: (context) => const TermsDialog(
                               headline: 'Terms & Conditions',
                               fileName: 'terms_and_conditions.txt'),
                         ));

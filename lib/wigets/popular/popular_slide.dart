@@ -28,13 +28,14 @@ class SlideShowListCard extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: InkWell(
                       onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ScreenDetails(
-                              index: index,
-                              destination: value[index],
-                            ),
-                          )),
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ScreenDetails(
+                            index: index,
+                            destination: value[index],
+                          ),
+                        ),
+                      ),
                       child: Card(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),

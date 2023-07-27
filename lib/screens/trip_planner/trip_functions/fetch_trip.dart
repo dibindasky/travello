@@ -61,9 +61,7 @@ class ReposatoryTrip with ChangeNotifier {
           .collection('tripplanner')
           .get()
           .then((value) => list = value.docs.map((e) => e.data()).toList());
-    } catch (e) {
-      print('====================e====================');
-    }
+    } catch (e) {e;}
     return list;
   }
 
@@ -87,9 +85,7 @@ class ReposatoryTrip with ChangeNotifier {
         .doc(tripModel.id);
     try {
       await dest.update({'notes': tripModel.notes});
-    } catch (e) {
-      print('==================$e========================');
-    }
+    } catch (e) {e;}
     getNotifier(tripModel.name);
   }
 
@@ -111,9 +107,7 @@ class ReposatoryTrip with ChangeNotifier {
           'endDate': tripModel.endDate,
         });
       }
-    } catch (e) {
-      print('==================$e========================');
-    }
+    } catch (e) {e;}
     await getTrips();
     getNotifier(tripModel.name);
   }

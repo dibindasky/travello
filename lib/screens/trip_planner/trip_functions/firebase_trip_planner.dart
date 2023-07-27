@@ -32,14 +32,11 @@ class TripPlannerFirebase {
       'startDate': startDate ?? '',
       'endDate': endDate ?? '',
     };
-    print('=================CREATE MAP================');
     try {
       await docTrip.set(trip);
     } catch (e) {
-      print('------------------------------$e--------------------------------');
       return false;
     }
-    print('=================FIREBASE DONE================');
     return true;
   }
 

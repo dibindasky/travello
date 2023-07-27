@@ -1,6 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/data_manageer/fetch_firebase_data.dart';
 import 'package:travelapp/screens/admin/cred_firebase_admin_operations.dart';
 import 'package:travelapp/wigets/favourite_list%20view/tile_favourite.dart';

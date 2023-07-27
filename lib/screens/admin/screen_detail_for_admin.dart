@@ -244,8 +244,6 @@ class _ScreenDetailsAdminState extends State<ScreenDetailsAdmin> {
     bool ret = false;
 
     if (widget.index == null) {
-      print(
-          '-=========================-----add new place------=================================');
       ret = await repo.addNewDestinastion(
           name: placeNameController.text,
           location: locationController.text,
@@ -254,8 +252,6 @@ class _ScreenDetailsAdminState extends State<ScreenDetailsAdmin> {
           districtIndex: districtIndex,
           catogeryIndex: catogeryIndex);
     } else {
-      print(
-          '======================-------edit existing doc--------==============================');
       List<String> imag;
       imag = await repo.imageConverter(images, widget.destination!.name);
       widget.destination!.name = placeNameController.text;

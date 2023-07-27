@@ -18,6 +18,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
     await widget.dataManager.getData();
     widget.dataManager.getPopularListsToDisplay();
   }
+
   @override
   Widget build(BuildContext context) {
     takeDatas();

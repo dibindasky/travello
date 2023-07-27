@@ -36,8 +36,6 @@ class SQLFlite with ChangeNotifier{
     final values = await db.rawQuery('SELECT * FROM favorites');
     favsNotifier.value = values.map((value) => value['name'] as String).toList();
     favsNotifier.notifyListeners();
-
-    print(favsNotifier);
   }
 
   Future<void> insertInTodb(String idName) async {

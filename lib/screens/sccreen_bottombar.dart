@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:travelapp/constants/colors.dart';
+import 'package:travelapp/constants/sized_boxes.dart';
+import 'package:travelapp/provider/bottom_bar.dart';
 import 'package:travelapp/screens/admin/admin_operations.dart';
 import 'package:travelapp/screens/bottombar_items/screen_favourite_list.dart';
 import 'package:travelapp/screens/bottombar_items/screen_home.dart';
-import 'package:travelapp/screens/trip_planner/ui/screen_planing.dart';
+import 'package:travelapp/screens/bottombar_items/screen_planing.dart';
+import 'package:travelapp/screens/bottombar_items/screen_plans.dart';
 
 class ScreenBottomBar extends StatefulWidget {
   const ScreenBottomBar({super.key, required this.admin});
@@ -16,63 +21,81 @@ class ScreenBottomBar extends StatefulWidget {
 }
 
 class _ScreenBottomBarState extends State<ScreenBottomBar> {
-  int currentSelectedIndex = 0;
-
-  var bottomList = [ScreenHome(), ScreenFavourite()];
+  var bottomList = [
+    ScreenHome(),
+    const ScreenPlanningTrip(),
+    const ScreenPlans(),
+    ScreenFavourite()
+  ];
 
   @override
   Widget build(BuildContext context) {
+    final selectedIndex =
+        Provider.of<BottomNavigationProvider>(context).selectedIndex;
+
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          widget.admin
-              ? Navigator.pushAndRemoveUntil(
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+      floatingActionButton: widget.admin
+          ? FloatingActionButton(
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
                       builder: (context) => ScreenAdminOperations()),
                   (route) => false,
-                )
-              : Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ScreenPlanningTrip(),
-                  ),
                 );
-        },
-        backgroundColor: bluePrimary,
-        child: const Icon(Icons.add),
-      ),
-      body: bottomList[currentSelectedIndex],
+              },
+              backgroundColor: bluePrimary,
+              child: const Icon(Icons.add),
+            )
+          : addHorizontalSpace(0),
+      body: bottomList[selectedIndex],
+      
       bottomNavigationBar: Container(
-        // decoration: const BoxDecoration(
-        //   boxShadow: [
-        //     BoxShadow(
-        //       blurRadius: 3,
-        //       spreadRadius: 3,
-        //       color: blueSecondary,
-        //     ),
-        //   ],
-        // ),
-        child: BottomNavigationBar(
-          // backgroundColor: bluePrimary,
-          elevation: 50,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+            boxShadow: const [BoxShadow(blurRadius: 1, spreadRadius: 0)],
+            color: whitePrimary),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: SalomonBottomBar(
           onTap: (value) {
-            setState(() {
-              currentSelectedIndex = value;
-            });
+            Provider.of<BottomNavigationProvider>(context, listen: false)
+                .setSelectedIndex(value);
           },
-          selectedLabelStyle: GoogleFonts.ubuntu(),
-          unselectedLabelStyle: GoogleFonts.ubuntu(),
+          duration: const Duration(milliseconds: 700),
           selectedItemColor: bluePrimary,
           unselectedItemColor: blueSecondary,
-          
-          currentIndex: currentSelectedIndex,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.favorite), label: 'favorite'),
+          currentIndex: selectedIndex,
+          items: [
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.home),
+              title: Text(
+                "Home",
+                style: GoogleFonts.ubuntu(color: blueSecondary),
+              ),
+            ),
+            SalomonBottomBarItem(
+                icon: const Icon(Icons.flight),
+                title: Text(
+                  "Planner",
+                  style: GoogleFonts.ubuntu(color: blueSecondary),
+                ),
+                selectedColor: Colors.green),
+            SalomonBottomBarItem(
+                icon: const Icon(Icons.list),
+                title: Text(
+                  "Plans",
+                  style: GoogleFonts.ubuntu(color: blueSecondary),
+                ),
+                selectedColor: Colors.greenAccent),
+            SalomonBottomBarItem(
+                icon: const Icon(Icons.favorite),
+                title: Text(
+                  "Favourite",
+                  style: GoogleFonts.ubuntu(color: blueSecondary),
+                ),
+                selectedColor: Colors.amber),
           ],
         ),
       ),

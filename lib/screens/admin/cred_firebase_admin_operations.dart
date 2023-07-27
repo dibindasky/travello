@@ -62,7 +62,6 @@ class ReposatoryDestination {
         'district': destination.district,
       });
     } catch (e) {
-      print('---------------------------$e-----------------------');
       return false;
     }
     return true;
@@ -90,9 +89,7 @@ class ReposatoryDestination {
           .child('DestinationImages')
           .child(name)
           .delete();
-    } catch (e) {
-      print('not deleted doc');
-    }
+    } catch (e) {e;}
   }
 
 // upload the image and return the url as string
@@ -111,9 +108,7 @@ class ReposatoryDestination {
         await toImage.putFile(imgFile);
         final url = await toImage.getDownloadURL();
         imageString.add(url);
-      } catch (e) {
-        print('-------------------------$e------------------------------');
-      }
+      } catch (e) {e;}
     }
     return imageString;
   }
@@ -127,9 +122,7 @@ class ReposatoryDestination {
       await userRef.update({
         'profileimg': url,
       });
-    } catch (e) {
-      print('===================$e==============');
-    }
+    } catch (e) {e;}
     return url;
   }
 
@@ -143,9 +136,7 @@ class ReposatoryDestination {
     try {
       await toImage.putFile(imgFile);
       url = await toImage.getDownloadURL();
-    } catch (e) {
-      print('============================($e)======================');
-    }
+    } catch (e) {e;}
     return url;
   }
 

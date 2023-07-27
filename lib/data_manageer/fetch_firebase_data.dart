@@ -68,9 +68,7 @@ class DataManager with ChangeNotifier {
       await fireStore.collection('destinations').get().then((value) {
         list = value.docs.map((e) => e.data()).toList();
       });
-    } on FirebaseException catch (e) {
-      print('=========================$e========================');
-    }
+    } on FirebaseException catch (e) {e;}
     return list;
   }
 
@@ -140,9 +138,7 @@ class DataManager with ChangeNotifier {
       await fireStore.collection('users').get().then((value) {
         list = value.docs.map((e) => e.data()).toList();
       });
-    } catch (e) {
-      print('====================$e======================');
-    }
+    } catch (e) {e;}
     profilepic = list[0]['profileimg'] ?? '';
   }
 
@@ -153,9 +149,7 @@ class DataManager with ChangeNotifier {
       await dest.update({
         'popularity': ++popularity,
       });
-    } catch (e) {
-      print('=========================$e================');
-    }
+    } catch (e) {e;}
   }
 
   sortData() {

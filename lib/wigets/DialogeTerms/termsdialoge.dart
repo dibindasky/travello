@@ -4,7 +4,7 @@ import 'package:travelapp/constants/colors.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 class TermsDialog extends StatefulWidget {
-  TermsDialog({super.key, required this.headline, required this.fileName,});
+  const TermsDialog({super.key, required this.headline, required this.fileName,});
   final String headline;
   final String fileName;
 
@@ -23,14 +23,14 @@ class _TermsDialogState extends State<TermsDialog> {
         backgroundColor: whiteSecondary,
         title: Text(
           widget.headline,
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
         ),
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.close,
             color: Colors.black,
           ),

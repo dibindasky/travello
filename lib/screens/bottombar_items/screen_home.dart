@@ -4,18 +4,17 @@ import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/screens/search_place.dart';
 import 'package:travelapp/screens/trip_planner/ui/upcoming_list_show.dart';
+import 'package:travelapp/wigets/appbar/appbar_maker.dart';
 import 'package:travelapp/wigets/catogery_container/catogery_container.dart';
 import 'package:travelapp/wigets/catogery_container/catogery_list.dart';
 import 'package:travelapp/wigets/drawer/side_drawer.dart';
 import 'package:travelapp/wigets/popular/popular_slide.dart';
 
-// ignore: must_be_immutable
 class ScreenHome extends StatelessWidget {
   ScreenHome({super.key});
 
-  CatogeryList catogaries = CatogeryList();
-
-  GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
+  final CatogeryList catogaries = CatogeryList();
+  final GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,36 +28,7 @@ class ScreenHome extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 10, right: 10),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image:
-                            AssetImage('assets/images/background/carbeach.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: BorderRadiusDirectional.only(
-                        bottomEnd: Radius.circular(40),
-                        bottomStart: Radius.circular(40),
-                      ),
-                    ),
-                    height: SCREEN_HEIGHT * 0.10,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            scaffoldkey.currentState!.openDrawer();
-                          },
-                          icon: const Icon(
-                            Icons.menu_outlined,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  AppbarMaker(image: 'assets/images/background/carbeach.jpg',scaffoldkey: scaffoldkey),
                   addVerticalSpace(SCREEN_HEIGHT * 0.010),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

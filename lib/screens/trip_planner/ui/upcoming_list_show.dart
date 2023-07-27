@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/functions/user_detail/user_detail_taker.dart';
 import 'package:travelapp/model/trip_model.dart';
+import 'package:travelapp/provider/bottom_bar.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/fetch_trip.dart';
-import 'package:travelapp/screens/trip_planner/ui/screen_planing.dart';
 import 'package:travelapp/screens/trip_planner/ui/trip_tile_empty.dart';
 import 'package:travelapp/screens/trip_planner/ui/upcoming_trip_bar.dart';
 
@@ -15,9 +17,8 @@ class UpcomingListHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int length = 0;
     return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(parent: BouncingScrollPhysics()),
+      physics: const ClampingScrollPhysics(),
       scrollDirection: Axis.horizontal,
       child: SizedBox(
         height: SCREEN_WIDTH * 0.25,
@@ -25,13 +26,8 @@ class UpcomingListHome extends StatelessWidget {
           children: [
             addHorizontalSpace(15),
             InkWell(
-              onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ScreenPlanningTrip(
-                      index: 2,
-                    ),
-                  )),
+              onTap: () =>Provider.of<BottomNavigationProvider>(context, listen: false)
+                .setSelectedIndex(1),
               child: Column(
                 children: [
                   addVerticalSpace(SCREEN_HEIGHT * 0.008),
@@ -42,21 +38,6 @@ class UpcomingListHome extends StatelessWidget {
                 ],
               ),
             ),
-            // length==0 ?
-            // Center(
-            //   child: SizedBox(
-            //     height: SCREEN_HEIGHT * 0.038,
-            //     width: SCREEN_WIDTH * 0.50,
-            //     child: FittedBox(
-            //       child: Text(
-            //         'Add new plans with us and \nenjoy your trips',
-            //         style: GoogleFonts.ubuntu(
-            //           fontWeight: FontWeight.w500,
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ):addVerticalSpace(0),
             StreamBuilder(
               stream: FirebaseFirestore.instance
                   .collection('users')
@@ -68,10 +49,18 @@ class UpcomingListHome extends StatelessWidget {
                   return const CircularProgressIndicator();
                 }
                 var document = snapshot.data!.docs;
-                length = document.length;
+                if (document.isEmpty) {
+                  return Container(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        'Introducing Trip Planner \nYour Ultimate Travel Companion',
+                        style: GoogleFonts.ubuntu(
+                            fontWeight: FontWeight.w600, fontSize: 17),
+                      ));
+                }
                 return SizedBox(
                   height: SCREEN_WIDTH * 0.22,
-                  width: SCREEN_WIDTH,
+                  width: double.maxFinite,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     physics: const NeverScrollableScrollPhysics(),
@@ -90,23 +79,6 @@ class UpcomingListHome extends StatelessWidget {
                 );
               },
             ),
-            //  SizedBox(
-            //       height: SCREEN_WIDTH * 0.22,
-            //       width: SCREEN_WIDTH,
-            //       child: ListView.builder(
-            //         scrollDirection: Axis.horizontal,
-            //         physics: const NeverScrollableScrollPhysics(),
-            //         itemBuilder: (context, index) {
-            //           return const Column(
-            //             children: [
-            //               TripTileEmpty(),
-            //               Text(' ')
-            //             ],
-            //           );
-            //         },
-            //         itemCount: 3,
-            //       ),
-            //     )
           ],
         ),
       ),
