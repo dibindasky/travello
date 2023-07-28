@@ -74,6 +74,7 @@ class _ScreenPlanningTripState extends State<ScreenPlanningTrip> {
                   Form(
                     key: formplan,
                     child: FormFields(
+                      maxLength: 15,
                       textLabel: 'trip name',
                       textContol: tripNameController,
                       function: isValidTripName,

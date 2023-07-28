@@ -7,6 +7,7 @@ import 'package:travelapp/functions/user_detail/user_detail_taker.dart';
 import 'package:travelapp/model/trip_model.dart';
 import 'package:travelapp/provider/bottom_bar.dart';
 import 'package:travelapp/screens/trip_planner/planned_details/plans_screen_tile.dart';
+import 'package:travelapp/wigets/appbar/appbar_maker.dart';
 
 class ScreenPlans extends StatelessWidget {
   const ScreenPlans({super.key});
@@ -16,8 +17,8 @@ class ScreenPlans extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-                      Provider.of<BottomNavigationProvider>(context, listen: false)
-                .setSelectedIndex(1);
+          Provider.of<BottomNavigationProvider>(context, listen: false)
+              .setSelectedIndex(1);
         },
         backgroundColor: const Color.fromARGB(255, 22, 117, 129),
         child: const Icon(Icons.add),
@@ -25,13 +26,12 @@ class ScreenPlans extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            addVerticalSpace(20),
-            // SizedBox(
-            //   height: SCREEN_HEIGHT * 0.11,
-            //   child: const AppbarMaker(
-            //     image: 'assets/images/catogorybackground/beachforcatogory.jpg',
-            //   ),
-            // ),
+            SizedBox(
+              height: SCREEN_HEIGHT * 0.11,
+              child: const AppbarMaker(
+                image: 'assets/images/catogorybackground/forestforcatogory.jpg',
+              ),
+            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -53,8 +53,7 @@ class ScreenPlans extends StatelessWidget {
                             child: Text(
                               'Travello: \nJourney Through Kerala',
                               style: GoogleFonts.ubuntu(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18),
+                                  fontWeight: FontWeight.w600, fontSize: 18),
                             ),
                           ));
                     }
@@ -63,7 +62,7 @@ class ScreenPlans extends StatelessWidget {
                       itemCount: document.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                              childAspectRatio: 1,
+                              // childAspectRatio: 1,
                               crossAxisCount: 2,
                               crossAxisSpacing: 10,
                               mainAxisSpacing: 10),
