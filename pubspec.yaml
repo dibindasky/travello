@@ -36,7 +36,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.1.2
-  flutter_floating_bottom_bar: ^1.1.0
   flutter_svg: ^1.1.6
   firebase_core: ^2.14.0
   firebase_auth: ^4.6.3
@@ -44,7 +43,6 @@ dependencies:
   image_picker: ^0.8.9
   firebase_storage: ^11.2.3
   url_launcher: ^6.1.11
-  liquid_pull_to_refresh: ^3.0.1
   carousel_slider: ^4.2.1
   sqflite: ^2.2.8+4
   cached_network_image: ^3.2.3
@@ -52,6 +50,7 @@ dependencies:
   google_fonts: ^5.1.0
   salomon_bottom_bar: ^3.3.2
   provider: ^6.0.5
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +62,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: 'assets/images/logo/travello.png'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -82,6 +86,7 @@ flutter:
       - assets/images/map/
       - assets/images/catogorybackground/
       - assets/images/policy/
+      - assets/images/logo/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

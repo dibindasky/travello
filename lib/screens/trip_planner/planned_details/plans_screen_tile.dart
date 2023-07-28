@@ -45,12 +45,12 @@ class _PlanScreenTileState extends State<PlanScreenTile> {
                       onPressed: () {
                         widget.reposatoryTrip.delete(widget.data, true);
                       },
-                      icon: Icon(Icons.delete_sweep_outlined))),
+                      icon: const Icon(Icons.delete_sweep_outlined))),
               Text(
                 widget.data.name,
                 style: GoogleFonts.ubuntu(
                     shadows: [
-                      BoxShadow(
+                      const BoxShadow(
                           blurRadius: 1, spreadRadius: 2, color: blueSecondary)
                     ],
                     fontSize: 20,

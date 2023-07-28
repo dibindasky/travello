@@ -10,7 +10,6 @@ class FormFields extends StatelessWidget {
       {super.key,
       this.textLabel,
       this.function,
-      this.maxLength=100,
       this.keyboardType,
       this.value = '',
       required this.textContol});
@@ -18,7 +17,6 @@ class FormFields extends StatelessWidget {
   String? textLabel;
   var keyboardType;
   var function;
-  int maxLength;
   String value;
   TextEditingController textContol;
 
@@ -32,7 +30,6 @@ class FormFields extends StatelessWidget {
           color: whiteSecondary,
           borderRadius: BorderRadius.all(Radius.circular(30))),
       child: TextFormField(
-        maxLength: maxLength,
         keyboardType: keyboardType,
         controller: textContol,
         autovalidateMode: AutovalidateMode.onUserInteraction,

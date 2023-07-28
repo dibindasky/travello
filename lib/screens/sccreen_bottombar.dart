@@ -27,10 +27,11 @@ class _ScreenBottomBarState extends State<ScreenBottomBar> {
     const ScreenPlans(),
     ScreenFavourite()
   ];
+  final pageViewController = PageController();
 
   @override
   Widget build(BuildContext context) {
-    final selectedIndex =
+    dynamic selectedIndex =
         Provider.of<BottomNavigationProvider>(context).selectedIndex;
 
     return Scaffold(
@@ -50,16 +51,26 @@ class _ScreenBottomBarState extends State<ScreenBottomBar> {
               child: const Icon(Icons.add),
             )
           : addHorizontalSpace(0),
-      body: bottomList[selectedIndex],
-      
+      // body: bottomList[selectedIndex],
+      body: PageView(
+        onPageChanged: (value) {
+          Provider.of<BottomNavigationProvider>(context, listen: false)
+              .setSelectedIndex(value);
+        },
+        controller: pageViewController,
+        children: bottomList,
+      ),
+    
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20),
             boxShadow: const [BoxShadow(blurRadius: 1, spreadRadius: 0)],
             color: whitePrimary),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SalomonBottomBar(
           onTap: (value) {
+            pageViewController.animateToPage(value,
+                duration: const Duration(milliseconds: 200), curve: Curves.bounceOut);
             Provider.of<BottomNavigationProvider>(context, listen: false)
                 .setSelectedIndex(value);
           },
