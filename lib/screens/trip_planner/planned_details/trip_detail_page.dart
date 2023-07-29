@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
+import 'package:travelapp/model/model_maker.dart';
 import 'package:travelapp/model/trip_model.dart';
+import 'package:travelapp/screens/search_place.dart';
 import 'package:travelapp/screens/trip_planner/planned_details/planned_tile.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/fetch_trip.dart';
+import 'package:travelapp/screens/trip_planner/trip_functions/firebase_trip_planner.dart';
 import 'package:travelapp/wigets/text_fields/buttons/button_login.dart';
 
 class TripDetails extends StatefulWidget {
@@ -16,6 +19,7 @@ class TripDetails extends StatefulWidget {
 
 class _TripDetailsState extends State<TripDetails> {
   final ReposatoryTrip reposatoryTrip = ReposatoryTrip();
+  final TripPlannerFirebase tripPlannerFirebase = TripPlannerFirebase();
   bool showDate = false;
   bool showDelete = false;
   bool showButtons = false;
@@ -38,6 +42,25 @@ class _TripDetailsState extends State<TripDetails> {
       addHorizontalSpace(20)
     ]);
     return Scaffold(
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+          onPressed: () async {
+            DestinationModel? model = await navigateAndGetValue(context);
+            if (model != null && !reposatoryTrip.tripListNotifier.value.contains(model)) {
+              await tripPlannerFirebase.addMoreToTrip(
+                  places: placeListFromModelList(
+                      reposatoryTrip.tripListNotifier.value, model),
+                  tripid: widget.tripModel.id,
+                  name: widget.tripModel.name,
+                  destinationModel: model,
+                  notes: widget.tripModel.notes);
+                  await reposatoryTrip.getTrips();
+                  reposatoryTrip.getNotifier(widget.tripModel.name);
+                  widget.tripModel.places.add(model.id);
+                  widget.tripModel.notes[model.id]='';
+            }
+          },
+          label: const Text('add destination')),
       appBar: appbar,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -154,6 +177,25 @@ class _TripDetailsState extends State<TripDetails> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  List<String> placeListFromModelList(
+      List<DestinationModel> models, DestinationModel model) {
+    List<String> places = [];
+    for (int i = 0; i < models.length; i++) {
+      places.add(models[i].id);
+    }
+    places.add(model.id);
+    return places;
+  }
+
+  Future<DestinationModel?> navigateAndGetValue(BuildContext context) async {
+    return await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ScreenSearchPlace(fromPlanScreen: true),
       ),
     );
   }

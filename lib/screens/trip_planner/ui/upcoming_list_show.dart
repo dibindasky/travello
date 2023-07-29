@@ -6,6 +6,7 @@ import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/functions/user_detail/user_detail_taker.dart';
 import 'package:travelapp/model/trip_model.dart';
 import 'package:travelapp/provider/bottom_bar.dart';
+import 'package:travelapp/screens/sccreen_bottombar.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/fetch_trip.dart';
 import 'package:travelapp/screens/trip_planner/ui/trip_tile_empty.dart';
 import 'package:travelapp/screens/trip_planner/ui/upcoming_trip_bar.dart';
@@ -26,8 +27,12 @@ class UpcomingListHome extends StatelessWidget {
           children: [
             addHorizontalSpace(15),
             InkWell(
-              onTap: () =>Provider.of<BottomNavigationProvider>(context, listen: false)
-                .setSelectedIndex(1),
+              onTap: () {
+                pageViewController.animateToPage(1,
+                duration: const Duration(milliseconds: 200), curve: Curves.bounceOut);
+                Provider.of<BottomNavigationProvider>(context, listen: false)
+                .setSelectedIndex(1);
+              },
               child: Column(
                 children: [
                   addVerticalSpace(SCREEN_HEIGHT * 0.008),

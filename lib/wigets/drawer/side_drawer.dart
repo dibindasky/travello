@@ -100,7 +100,7 @@ class _SideDrawerState extends State<SideDrawer> {
                                         borderRadius: BorderRadius.circular(50),
                                         image: DecorationImage(
                                             image: CachedNetworkImageProvider(
-                                              snapshot.data!.get('profileimg'),
+                                              snapshot.data!.get('profileimg'), 
                                             ),
                                             fit: BoxFit.cover),
                                       ),

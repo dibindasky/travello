@@ -66,7 +66,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: 'assets/images/logo/travello.png'
+  image_path: "assets/logo/travello.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -86,7 +86,7 @@ flutter:
       - assets/images/map/
       - assets/images/catogorybackground/
       - assets/images/policy/
-      - assets/images/logo/
+      - assets/logo/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

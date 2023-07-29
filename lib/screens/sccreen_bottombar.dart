@@ -11,6 +11,8 @@ import 'package:travelapp/screens/bottombar_items/screen_home.dart';
 import 'package:travelapp/screens/bottombar_items/screen_planing.dart';
 import 'package:travelapp/screens/bottombar_items/screen_plans.dart';
 
+final pageViewController = PageController();
+
 class ScreenBottomBar extends StatefulWidget {
   const ScreenBottomBar({super.key, required this.admin});
 
@@ -27,7 +29,6 @@ class _ScreenBottomBarState extends State<ScreenBottomBar> {
     const ScreenPlans(),
     ScreenFavourite()
   ];
-  final pageViewController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +75,7 @@ class _ScreenBottomBarState extends State<ScreenBottomBar> {
             Provider.of<BottomNavigationProvider>(context, listen: false)
                 .setSelectedIndex(value);
           },
-          duration: const Duration(milliseconds: 700),
+          duration: const Duration(milliseconds: 600),
           selectedItemColor: bluePrimary,
           unselectedItemColor: blueSecondary,
           currentIndex: selectedIndex,

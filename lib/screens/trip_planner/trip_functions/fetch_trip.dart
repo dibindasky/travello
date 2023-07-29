@@ -21,7 +21,7 @@ class ReposatoryTrip with ChangeNotifier {
 
   List<Map<String, dynamic>> tripslist = [];
 
-  getTrips() async {
+  Future getTrips() async {
     tripslist.clear();
     tripslist = await getAllTrips();
     List<TripModel> models = [];
@@ -36,18 +36,11 @@ class ReposatoryTrip with ChangeNotifier {
     }
     allTripDestinations.clear();
     for (var model in models) {
-      // List<String> date = model.endDate!.split('/').toList();
-      // final DateTime last =
-      //     DateTime(date[2] as int, date[1] as int, date[0] as int, 0, 0);
-      // if (DateTime.now().compareTo(last) > 0) {
-      //   await delete(model, true);
-      // } else {
       for (var destination in dataManager.documentsFromFirebase) {
         if (model.places.contains(destination.id) &&
             !allTripDestinations.contains(destination)) {
           allTripDestinations.add(destination);
         }
-        // }
       }
     }
   }
@@ -61,9 +54,28 @@ class ReposatoryTrip with ChangeNotifier {
           .collection('tripplanner')
           .get()
           .then((value) => list = value.docs.map((e) => e.data()).toList());
-    } catch (e) {e;}
+    } catch (e) {
+      e;
+    }
     return list;
   }
+
+  // Future getTripAfterAddNewData(String id) async {
+  //   List<String> places = [];
+  //   try {
+  //     await fireStore
+  //         .collection('users')
+  //         .doc(currentUserDetail()!.uid)
+  //         .collection('tripplanner')
+  //         .doc(id)
+  //         .get()
+  //         .then((value) {
+  //       places = value['places'];
+  //     });
+  //   } catch (e) {
+  //     e;
+  //   }
+  // }
 
   getNotifier(String tripName) {
     tripListNotifier.value.clear();
@@ -85,7 +97,9 @@ class ReposatoryTrip with ChangeNotifier {
         .doc(tripModel.id);
     try {
       await dest.update({'notes': tripModel.notes});
-    } catch (e) {e;}
+    } catch (e) {
+      e;
+    }
     getNotifier(tripModel.name);
   }
 
@@ -107,7 +121,9 @@ class ReposatoryTrip with ChangeNotifier {
           'endDate': tripModel.endDate,
         });
       }
-    } catch (e) {e;}
+    } catch (e) {
+      e;
+    }
     await getTrips();
     getNotifier(tripModel.name);
   }

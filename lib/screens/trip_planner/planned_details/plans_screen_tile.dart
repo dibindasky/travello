@@ -31,7 +31,8 @@ class _PlanScreenTileState extends State<PlanScreenTile> {
           width: SCREEN_WIDTH * 0.17,
           decoration: BoxDecoration(
             image: const DecorationImage(
-                image: AssetImage('assets/images/catogorybackground/hillforcatogory.jpg'),
+                image: AssetImage(
+                    'assets/images/catogorybackground/hillforcatogory.jpg'),
                 fit: BoxFit.cover),
             color: blueSecondary,
             borderRadius: BorderRadius.circular(SCREEN_WIDTH * 0.05),
@@ -47,7 +48,9 @@ class _PlanScreenTileState extends State<PlanScreenTile> {
                       },
                       icon: const Icon(Icons.delete_sweep_outlined))),
               Text(
-                widget.data.name,
+                widget.data.name.length > 15
+                    ? '${widget.data.name.substring(0, 10)}..'
+                    : widget.data.name,
                 style: GoogleFonts.ubuntu(
                     shadows: [
                       const BoxShadow(
@@ -60,71 +63,6 @@ class _PlanScreenTileState extends State<PlanScreenTile> {
               addHorizontalSpace(0)
             ],
           )),
-      // child: Stack(
-      //   children: [
-      //     Container(
-      //       child: Column(
-      //         children: [
-      //           Align(
-      //               alignment: Alignment.topRight,
-      //               child: IconButton(
-      //                 icon: const Icon(Icons.more_vert_sharp),
-      //                 onPressed: () {
-      //                   setState(() {
-      //                     show = show ? false : true;
-      //                   });
-      //                 },
-      //               )),
-      //           Container(
-      //               height: SCREEN_HEIGHT * 0.04,
-      //               color: whitePrimary,
-      //               child: Center(
-      //                   child: Text(
-      //                 widget.data.name,
-      //                 style: GoogleFonts.ubuntu(
-      //                     fontSize: 17, fontWeight: FontWeight.w500),
-      //               ))),
-      //           Container(
-      //             // width: SCREEN_WIDTH * 0.4,
-      //             // height: SCREEN_HEIGHT *0.15,
-      //             decoration: const BoxDecoration(
-      //                 borderRadius: BorderRadius.all(Radius.circular(15)),
-      //                 image: DecorationImage(
-      //                     image: AssetImage(
-      //                         'assets/images/catogorybackground/travelplan.jpeg'),
-      //                     fit: BoxFit.cover)),
-      //           ),
-
-      //         ],
-      //       ),
-      //     ),
-      // show
-      //     ? Positioned(
-      //         right: 2,
-      //         top: SCREEN_HEIGHT * 0.04,
-      //         child: Container(
-      //           height: SCREEN_HEIGHT * 0.05,
-      //           decoration: const BoxDecoration(
-      //               color: whitePrimary,
-      //               boxShadow: [BoxShadow()],
-      //               borderRadius: BorderRadius.all(Radius.circular(10))),
-      //           child: TextButton.icon(
-      //               onPressed: () async {},
-      //               icon: const Text(
-      //                 'Delete',
-      //                 style: TextStyle(
-      //                   color: blueSecondary,
-      //                 ),
-      //               ),
-      //               label: const Icon(
-      //                 Icons.delete,
-      //                 color: blueSecondary,
-      //               )),
-      //         ),
-      //       )
-      //     : addHorizontalSpace(0),
-      //   ],
-      // ),
     );
   }
 }

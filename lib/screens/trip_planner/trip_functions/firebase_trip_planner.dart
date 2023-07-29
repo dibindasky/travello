@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:travelapp/functions/user_detail/user_detail_taker.dart';
 import 'package:travelapp/model/model_maker.dart';
+import 'package:travelapp/screens/trip_planner/trip_functions/fetch_trip.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/trip_list_maker.dart';
 
 class TripPlannerFirebase {
   TripListMaker tripListMaker = TripListMaker();
+  ReposatoryTrip reposatoryTrip = ReposatoryTrip();
 
   FirebaseFirestore firebase = FirebaseFirestore.instance;
   final userid = currentUserDetail()!.uid;
@@ -40,4 +42,22 @@ class TripPlannerFirebase {
     return true;
   }
 
+  Future addMoreToTrip(
+      {required List<String> places,
+      required String tripid,
+      required String name,
+      required Map<String, dynamic> notes,
+      required DestinationModel destinationModel}) async {
+    CollectionReference reference = firebase.collection('users');
+    DocumentReference docRef = reference.doc(userid);
+    CollectionReference tripCollection = docRef.collection('tripplanner');
+    DocumentReference docTrip = tripCollection.doc(tripid);
+    notes[destinationModel.id] = '';
+    Map<String, dynamic> trip = {'places': places, 'notes': notes};
+    try {
+      await docTrip.update(trip);
+    } catch (e) {
+      e;
+    }
+  }
 }

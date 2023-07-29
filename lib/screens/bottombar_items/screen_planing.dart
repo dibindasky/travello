@@ -7,6 +7,7 @@ import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/functions/validator_functions.dart';
 import 'package:travelapp/model/model_maker.dart';
 import 'package:travelapp/provider/bottom_bar.dart';
+import 'package:travelapp/screens/sccreen_bottombar.dart';
 import 'package:travelapp/screens/search_place.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/calender_pick.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/fetch_trip.dart';
@@ -215,7 +216,6 @@ class _ScreenPlanningTripState extends State<ScreenPlanningTrip> {
     if (!formplan.currentState!.validate()) {
       return;
     }
-
     if (calenderPicker.startDate == '' || calenderPicker.endDate == '') {
       snackShow(context, 'choose dates');
       return;
@@ -234,6 +234,8 @@ class _ScreenPlanningTripState extends State<ScreenPlanningTrip> {
       reposatoryTrip.getTrips();
       calenderPicker.endDate = '';
       calenderPicker.startDate = '';
+      pageViewController.animateToPage(0,
+                duration: const Duration(milliseconds: 200), curve: Curves.bounceOut);
       Provider.of<BottomNavigationProvider>(context, listen: false)
           .setSelectedIndex(0);
     } else {

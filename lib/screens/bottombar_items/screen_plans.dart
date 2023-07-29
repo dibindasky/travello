@@ -6,6 +6,7 @@ import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/functions/user_detail/user_detail_taker.dart';
 import 'package:travelapp/model/trip_model.dart';
 import 'package:travelapp/provider/bottom_bar.dart';
+import 'package:travelapp/screens/sccreen_bottombar.dart';
 import 'package:travelapp/screens/trip_planner/planned_details/plans_screen_tile.dart';
 import 'package:travelapp/wigets/appbar/appbar_maker.dart';
 
@@ -17,6 +18,8 @@ class ScreenPlans extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          pageViewController.animateToPage(1,
+                duration: const Duration(milliseconds: 200), curve: Curves.bounceOut);
           Provider.of<BottomNavigationProvider>(context, listen: false)
               .setSelectedIndex(1);
         },
@@ -43,7 +46,7 @@ class ScreenPlans extends StatelessWidget {
                       .snapshots(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
+                      return const Center(child: CircularProgressIndicator());
                     }
                     var document = snapshot.data!.docs;
                     if (document.isEmpty) {
@@ -62,7 +65,6 @@ class ScreenPlans extends StatelessWidget {
                       itemCount: document.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                              // childAspectRatio: 1,
                               crossAxisCount: 2,
                               crossAxisSpacing: 10,
                               mainAxisSpacing: 10),
