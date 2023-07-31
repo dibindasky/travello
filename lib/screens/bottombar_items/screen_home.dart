@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
-import 'package:travelapp/screens/search_place.dart';
+import 'package:travelapp/provider/bottom_bar.dart';
+import 'package:travelapp/screens/sccreen_bottombar.dart';
 import 'package:travelapp/screens/trip_planner/ui/upcoming_list_show.dart';
 import 'package:travelapp/wigets/appbar/appbar_maker.dart';
 import 'package:travelapp/wigets/catogery_container/catogery_container.dart';
@@ -28,7 +30,9 @@ class ScreenHome extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  AppbarMaker(image: 'assets/images/background/carbeach.jpg',scaffoldkey: scaffoldkey),
+                  AppbarMaker(
+                      image: 'assets/images/background/carbeach.jpg',
+                      scaffoldkey: scaffoldkey),
                   addVerticalSpace(SCREEN_HEIGHT * 0.010),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +41,8 @@ class ScreenHome extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 15),
                         child: Text(
                           'UpComing Trips',
-                          style: GoogleFonts.ubuntu(fontWeight: FontWeight.w700, fontSize: 18),
+                          style: GoogleFonts.ubuntu(
+                              fontWeight: FontWeight.w700, fontSize: 18),
                         ),
                       ),
                       addVerticalSpace(4),
@@ -57,12 +62,14 @@ class ScreenHome extends StatelessWidget {
                             ),
                             addVerticalSpace(SCREEN_HEIGHT * 0.025),
                             InkWell(
-                              onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ScreenSearchPlace(),
-                                ),
-                              ),
+                              onTap: () {
+                                pageViewController.animateToPage(2,
+                                    duration: const Duration(milliseconds: 200),
+                                    curve: Curves.bounceOut);
+                                Provider.of<BottomNavigationProvider>(context,
+                                        listen: false)
+                                    .setSelectedIndex(2);
+                              },
                               child: Container(
                                 height: SCREEN_HEIGHT * 0.10,
                                 decoration: const BoxDecoration(
@@ -168,7 +175,3 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
-
-
-
-

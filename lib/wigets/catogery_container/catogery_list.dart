@@ -21,25 +21,4 @@ class CatogeryList {
     'assets/images/catogorybackground/parkforcatogory.jpeg',
     'assets/images/catogorybackground/muesiumforcatogory.jpeg',
   ];
-
-
-  // List icons = [
-  //   MakeIcon(
-  //     image: 'lib/constants/icons/beach (2).svg',
-  //     height: 25,
-  //   ),
-  //   MakeIcon(image: 'lib/constants/icons/hills.svg'),
-  //   MakeIcon(image: 'lib/constants/icons/forest.svg'),
-  //   MakeIcon(
-  //     image: 'lib/constants/icons/water.svg',
-  //     height: 25,
-  //   ),
-  //   MakeIcon(
-  //     image: 'lib/constants/icons/water.svg',
-  //     height: 25,
-  //   ),
-  //   MakeIcon(image: 'lib/constants/icons/hut.svg'),
-  //   MakeIcon(image: 'lib/constants/icons/park.svg'),
-  //   MakeIcon(image: 'lib/constants/icons/hut.svg'),
-  // ];
 }

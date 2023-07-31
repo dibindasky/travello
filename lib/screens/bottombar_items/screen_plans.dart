@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/functions/user_detail/user_detail_taker.dart';
 import 'package:travelapp/model/trip_model.dart';
@@ -19,7 +20,8 @@ class ScreenPlans extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           pageViewController.animateToPage(1,
-                duration: const Duration(milliseconds: 200), curve: Curves.bounceOut);
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.bounceOut);
           Provider.of<BottomNavigationProvider>(context, listen: false)
               .setSelectedIndex(1);
         },
@@ -51,14 +53,31 @@ class ScreenPlans extends StatelessWidget {
                     var document = snapshot.data!.docs;
                     if (document.isEmpty) {
                       return Container(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Center(
-                            child: Text(
-                              'Travello: \nJourney Through Kerala',
-                              style: GoogleFonts.ubuntu(
-                                  fontWeight: FontWeight.w600, fontSize: 18),
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.green[100],
+                                  borderRadius: BorderRadius.circular(
+                                      SCREEN_WIDTH * 0.50)),
+                              height: SCREEN_WIDTH * 0.50,
+                              width: SCREEN_WIDTH * 0.50,
+                              child: Icon(
+                                Icons.play_disabled_outlined,
+                                color: whitePrimary,
+                                size: SCREEN_WIDTH * 0.30,
+                              ),
                             ),
-                          ));
+                            addVerticalSpace(20),
+                            Text(
+                              'no trips are added',
+                              style: GoogleFonts.ubuntu(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      );
                     }
                     return GridView.builder(
                       physics: const BouncingScrollPhysics(),

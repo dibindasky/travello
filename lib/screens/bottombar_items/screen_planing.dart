@@ -8,7 +8,7 @@ import 'package:travelapp/functions/validator_functions.dart';
 import 'package:travelapp/model/model_maker.dart';
 import 'package:travelapp/provider/bottom_bar.dart';
 import 'package:travelapp/screens/sccreen_bottombar.dart';
-import 'package:travelapp/screens/search_place.dart';
+import 'package:travelapp/screens/bottombar_items/search_place.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/calender_pick.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/fetch_trip.dart';
 import 'package:travelapp/screens/trip_planner/ui/calender.dart';

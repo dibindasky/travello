@@ -4,9 +4,8 @@ import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/screens/screen_category.dart';
 
-// ignore: must_be_immutable
 class CatogeryContainer extends StatelessWidget {
-  CatogeryContainer(
+  const CatogeryContainer(
       {super.key,
       required this.headLine,
       required this.index,
@@ -14,11 +13,11 @@ class CatogeryContainer extends StatelessWidget {
       required this.img,
       this.width = 0.10});
 
-  String headLine;
-  double width;
-  double height;
-  int index;
-  String img;
+  final String headLine;
+  final double width;
+  final double height;
+  final int index;
+  final String img;
 
   @override
   Widget build(BuildContext context) {

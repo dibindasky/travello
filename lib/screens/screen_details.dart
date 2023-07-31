@@ -45,7 +45,7 @@ class ScreenDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // addVerticalSpace(20),
+              // addVerticalSpace(20),   
               SizedBox(
                 height: SCREEN_HEIGHT * 0.50,
                 width: SCREEN_WIDTH,

@@ -3,7 +3,7 @@ import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/model/model_maker.dart';
 import 'package:travelapp/model/trip_model.dart';
-import 'package:travelapp/screens/search_place.dart';
+import 'package:travelapp/screens/bottombar_items/search_place.dart';
 import 'package:travelapp/screens/trip_planner/planned_details/planned_tile.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/fetch_trip.dart';
 import 'package:travelapp/screens/trip_planner/trip_functions/firebase_trip_planner.dart';

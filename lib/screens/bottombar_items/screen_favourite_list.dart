@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/data_manageer/fetch_firebase_data.dart';
 import 'package:travelapp/local_db/local_db.dart';
@@ -28,26 +30,43 @@ class ScreenFavourite extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            AppbarMaker(image: 'assets/images/background/trlwlp6.jpg',scaffoldkey: scaffoldkey,height: 0.15),
+            AppbarMaker(
+                image: 'assets/images/background/trlwlp6.jpg',
+                scaffoldkey: scaffoldkey,
+                height: 0.15),
             addVerticalSpace(10),
             Expanded(
               child: ValueListenableBuilder(
                 valueListenable: dataManager.favListFromFirebase,
                 builder: (context, favList, child) {
-                  return GridView.builder(
-                    physics: const BouncingScrollPhysics(),
-                  itemCount: sql.favsNotifier.value.length,
-                  gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2),
-                  itemBuilder: (context, index) {
-                    final data = favList[index];
-                    return TileFavourites(
-                      index: index,
-                      destination: data
-                    );
-                  },
-                );
+                  return favList.isEmpty
+                      ? Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(color: Colors.blue[100],borderRadius: BorderRadius.circular(SCREEN_WIDTH * 0.50)),
+                                height: SCREEN_WIDTH * 0.50,
+                                width: SCREEN_WIDTH * 0.50,
+                                child: Icon(Icons.favorite,color: whitePrimary,size: SCREEN_WIDTH * 0.30,),
+                              ),
+                              addVerticalSpace(20),
+                              Text('no favourites added',style: GoogleFonts.ubuntu(fontSize: 15),)
+                            ],
+                          ),
+                        )
+                      : GridView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: sql.favsNotifier.value.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2),
+                          itemBuilder: (context, index) {
+                            final data = favList[index];
+                            return TileFavourites(
+                                index: index, destination: data);
+                          },
+                        );
                 },
               ),
             ),

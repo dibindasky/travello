@@ -13,7 +13,7 @@ class CatogaryListMaker extends StatefulWidget {
   List list;
   int count;
   List<bool> marker;
-  final DataManager dataManager=DataManager();
+  final DataManager dataManager = DataManager();
 
   @override
   State<CatogaryListMaker> createState() => _CatogaryListMakerState();
@@ -50,7 +50,12 @@ class _CatogaryListMakerState extends State<CatogaryListMaker> {
                     ),
               margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(6),
-              child: Text(widget.list[index]),
+              child: widget.marker[index]
+                  ? Text(
+                      widget.list[index],
+                      style: const TextStyle(color: whitePrimary),
+                    )
+                  : Text(widget.list[index]),
             ),
           ),
         ),

@@ -100,7 +100,6 @@ class LogAuth {
       Map<String, dynamic> userDetail={
         'name':name,
         'email':email,
-        'password':password,
         'profileimg':'',
       };
       await userdoc.set(userDetail);

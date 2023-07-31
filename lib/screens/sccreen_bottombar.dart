@@ -10,6 +10,7 @@ import 'package:travelapp/screens/bottombar_items/screen_favourite_list.dart';
 import 'package:travelapp/screens/bottombar_items/screen_home.dart';
 import 'package:travelapp/screens/bottombar_items/screen_planing.dart';
 import 'package:travelapp/screens/bottombar_items/screen_plans.dart';
+import 'package:travelapp/screens/bottombar_items/search_place.dart';
 
 final pageViewController = PageController();
 
@@ -26,6 +27,7 @@ class _ScreenBottomBarState extends State<ScreenBottomBar> {
   var bottomList = [
     ScreenHome(),
     const ScreenPlanningTrip(),
+    ScreenSearchPlace(),
     const ScreenPlans(),
     ScreenFavourite()
   ];
@@ -94,6 +96,13 @@ class _ScreenBottomBarState extends State<ScreenBottomBar> {
                   style: GoogleFonts.ubuntu(color: blueSecondary),
                 ),
                 selectedColor: Colors.green),
+            SalomonBottomBarItem(
+                icon: const Icon(Icons.search_sharp),
+                title: Text(
+                  "Search",
+                  style: GoogleFonts.ubuntu(color: blueSecondary),
+                ),
+                selectedColor: Colors.cyan),
             SalomonBottomBarItem(
                 icon: const Icon(Icons.list),
                 title: Text(
