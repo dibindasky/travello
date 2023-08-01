@@ -12,7 +12,6 @@ class TripbarTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: SCREEN_WIDTH * 0.25,
       child: Column(
         children: [
           InkWell(

@@ -26,7 +26,7 @@ class ScreenPlans extends StatelessWidget {
               .setSelectedIndex(1);
         },
         backgroundColor: const Color.fromARGB(255, 22, 117, 129),
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add,color: whitePrimary,),
       ),
       body: SafeArea(
         child: Column(

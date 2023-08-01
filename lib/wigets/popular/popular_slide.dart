@@ -43,6 +43,9 @@ class SlideShowListCard extends StatelessWidget {
                         elevation: 10,
                         // color: bluePrimary,
                         child: Container(
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 255, 250, 250),
+                              borderRadius: BorderRadius.circular(20)),
                           padding: const EdgeInsets.all(5),
                           width: SCREEN_WIDTH * 0.44,
                           child: Column(

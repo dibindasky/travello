@@ -40,13 +40,17 @@ class _SideDrawerState extends State<SideDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: whitePrimary,
       child: Stack(
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/catogorybackground/forestforcatogory.jpg'))),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                            'assets/images/catogorybackground/forestforcatogory.jpg'))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -96,11 +100,16 @@ class _SideDrawerState extends State<SideDrawer> {
                                     )
                                   : Container(
                                       decoration: BoxDecoration(
-                                        boxShadow: const [BoxShadow(blurRadius: 1,spreadRadius: 1,color: whiteSecondary)],
+                                        boxShadow: const [
+                                          BoxShadow(
+                                              blurRadius: 1,
+                                              spreadRadius: 1,
+                                              color: whiteSecondary)
+                                        ],
                                         borderRadius: BorderRadius.circular(50),
                                         image: DecorationImage(
                                             image: CachedNetworkImageProvider(
-                                              snapshot.data!.get('profileimg'), 
+                                              snapshot.data!.get('profileimg'),
                                             ),
                                             fit: BoxFit.cover),
                                       ),
@@ -139,7 +148,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   ],
                 ),
               ),
-              const Divider(),
+              addVerticalSpace(20),
               ButtonContainer(
                 textIn:
                     currentUser != null ? currentUser!.email! : 'travello User',
@@ -158,12 +167,13 @@ class _SideDrawerState extends State<SideDrawer> {
                 icon: IconButton(
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const TermsDialog(
-                              headline: 'Privacy Policy',
-                              fileName: 'privacy_policy.txt'),
-                        ));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TermsDialog(
+                            headline: 'Privacy Policy',
+                            fileName: 'privacy_policy.txt'),
+                      ),
+                    );
                   },
                   icon: const Icon(
                     Icons.shield_outlined,

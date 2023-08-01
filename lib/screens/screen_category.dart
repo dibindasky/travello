@@ -18,7 +18,7 @@ class ScreenCategory extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(catogoryObject.catagoryListForSearch[catogeryIndex]),
-        backgroundColor: bluePrimary,
+        backgroundColor: bluePrimary,foregroundColor: whitePrimary,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),

@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/data_manageer/fetch_firebase_data.dart';
 import 'package:travelapp/model/model_maker.dart';
@@ -16,6 +15,7 @@ class SearchTextScreen extends StatefulWidget {
 class _SearchTextScreenState extends State<SearchTextScreen> {
   final DataManager dataManager = DataManager();
   String searchValue = '';
+  final TextEditingController search=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +32,22 @@ class _SearchTextScreenState extends State<SearchTextScreen> {
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: whitePrimary,
+                    color: const Color.fromARGB(255, 255, 250, 250),
                     boxShadow: const [BoxShadow(spreadRadius: 1,blurRadius: 1,color: Colors.black26)]),
                 child: TextField(
+                  controller: search,
                   onChanged: (value) => setState(() {
                     searchValue = value;
                   }),
-                  decoration: const InputDecoration(
-                      label: Text('search'),
-                      prefixIcon: Icon(Icons.search),
+                  decoration:  InputDecoration(
+                      label: const Text('search'),
+                      suffixIcon: IconButton(onPressed: (){
+                        setState(() {
+                          search.text='';
+                          searchValue='';
+                        });
+                      }, icon: const Icon(Icons.highlight_remove_sharp,color: Colors.black38)),
+                      prefixIcon: const Icon(Icons.search,),
                       prefixIconColor: Colors.black,
                       border: InputBorder.none),
                 ),

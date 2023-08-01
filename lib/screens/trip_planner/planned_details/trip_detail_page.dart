@@ -27,7 +27,7 @@ class _TripDetailsState extends State<TripDetails> {
   @override
   Widget build(BuildContext context) {
     reposatoryTrip.getNotifier(widget.tripModel.name);
-    var appbar = AppBar(title: Text(widget.tripModel.name), actions: [
+    var appbar = AppBar(title: Text(widget.tripModel.name), foregroundColor: whitePrimary,backgroundColor: bluePrimary, actions: [
       IconButton(
           onPressed: () {
             setState(() {
@@ -44,6 +44,7 @@ class _TripDetailsState extends State<TripDetails> {
     return Scaffold(
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: bluePrimary,
           onPressed: () async {
             DestinationModel? model = await navigateAndGetValue(context);
             if (model != null && !reposatoryTrip.tripListNotifier.value.contains(model)) {
@@ -60,7 +61,7 @@ class _TripDetailsState extends State<TripDetails> {
                   widget.tripModel.notes[model.id]='';
             }
           },
-          label: const Text('add destination')),
+          label: const Text('add destination',style: TextStyle(color: whitePrimary),)),
       appBar: appbar,
       body: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -33,15 +33,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       navigatorKey: navigatorKey,
       theme: ThemeData(
-        canvasColor: const Color.fromARGB(255, 255, 255, 255),
+        primarySwatch: Colors.blue,
+        primaryColor: Color.fromARGB(255, 255, 255, 255),
+        canvasColor: Color.fromARGB(255, 255, 255, 255),
       ),
       debugShowCheckedModeBanner: false,
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          final mediaQueryData = MediaQuery.of(context);
-          final scale = mediaQueryData.textScaleFactor.clamp(0.5, 1.5);
-          MediaQuery.of(context).copyWith(textScaleFactor: scale);
           return snapshot.connectionState == ConnectionState.waiting
               ? const CircularProgressIndicator()
               : snapshot.hasData
@@ -52,5 +51,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// GoogleFonts.ubuntu()

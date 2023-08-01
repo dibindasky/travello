@@ -44,6 +44,8 @@ class _PlanTileTripState extends State<PlanTileTrip> {
           shadowColor: bluePrimary,
           elevation: 10,
           child: Container(
+            decoration: BoxDecoration(
+                color: whitePrimary, borderRadius: BorderRadius.circular(20)),
             padding: const EdgeInsets.all(10),
             child: Column(
               children: [
@@ -52,8 +54,8 @@ class _PlanTileTripState extends State<PlanTileTrip> {
                   children: [
                     Text(
                       widget.destination.name.length > 18
-                          ? '${widget.destination.name.substring(0, 16)}..' 
-                          : widget.destination.name ,
+                          ? '${widget.destination.name.substring(0, 16)}..'
+                          : widget.destination.name,
                       style: const TextStyle(
                           fontWeight: FontWeight.w500, fontSize: 15),
                     ),
@@ -115,7 +117,6 @@ class _PlanTileTripState extends State<PlanTileTrip> {
                         radius: SCREEN_HEIGHT * 0.05,
                         fontColor: whitePrimary,
                         height: SCREEN_HEIGHT * 0.05,
-                        // width: 100,
                         visibleIcon: true,
                         icon: const Icon(
                           Icons.location_on_outlined,
@@ -134,17 +135,28 @@ class _PlanTileTripState extends State<PlanTileTrip> {
                       ],
                     )),
                 SizedBox(
+                  height: SCREEN_HEIGHT * 0.085,
                   width: double.infinity * 0.80,
                   child: TextField(
                     style: GoogleFonts.actor(fontWeight: FontWeight.w500),
+                    onSubmitted: (value) async {
+                      widget.tripModel.notes[widget.destination.id] =
+                          noteController.text;
+                      await reposatoryTrip.updateNote(widget.tripModel);
+                    },
+                    onEditingComplete: () async {
+                      widget.tripModel.notes[widget.destination.id] =
+                          noteController.text;
+                      await reposatoryTrip.updateNote(widget.tripModel);
+                    },
                     onTapOutside: (event) async {
                       widget.tripModel.notes[widget.destination.id] =
                           noteController.text;
                       await reposatoryTrip.updateNote(widget.tripModel);
                     },
                     controller: noteController,
-                    keyboardType: TextInputType.multiline,
-                    maxLines: 3,
+                    keyboardType: TextInputType.text,
+                    maxLines: 4,
                     decoration: const InputDecoration(
                       hintText: 'add notes here..',
                       border: InputBorder.none,
@@ -168,7 +180,8 @@ class _PlanTileTripState extends State<PlanTileTrip> {
                     children: [
                       TextButton.icon(
                           onPressed: () async {
-                            reposatoryTrip.tripListNotifier.value.remove(widget.destination);
+                            reposatoryTrip.tripListNotifier.value
+                                .remove(widget.destination);
                             widget.tripModel.places
                                 .remove(widget.destination.id);
                             widget.tripModel.notes

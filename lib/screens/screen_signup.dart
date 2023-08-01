@@ -66,6 +66,7 @@ class ScreenSignup extends StatelessWidget {
                       FormFields(
                         textContol: passwordSignupControl,
                         textLabel: 'password . . .',
+                        obscure: true,
                         function: isValidPassword,
                       ),
                       addVerticalSpace(25),

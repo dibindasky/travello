@@ -88,7 +88,7 @@ class ScreenHome extends StatelessWidget {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     SizedBox(
-                                      height: SCREEN_HEIGHT * 0.02,
+                                      height: SCREEN_HEIGHT * 0.025,
                                       width: SCREEN_WIDTH * 0.70,
                                       child: FittedBox(
                                         child: Text(

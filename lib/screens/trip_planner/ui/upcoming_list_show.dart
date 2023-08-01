@@ -35,7 +35,7 @@ class UpcomingListHome extends StatelessWidget {
               },
               child: Column(
                 children: [
-                  addVerticalSpace(SCREEN_HEIGHT * 0.008),
+                  addVerticalSpace(SCREEN_HEIGHT * 0.0075),
                   const Center(
                     child: TripTileEmpty(),
                   ),
@@ -64,7 +64,7 @@ class UpcomingListHome extends StatelessWidget {
                       ));
                 }
                 return SizedBox(
-                  height: SCREEN_WIDTH * 0.22,
+                  height: SCREEN_WIDTH * 0.23,
                   width: double.maxFinite,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,

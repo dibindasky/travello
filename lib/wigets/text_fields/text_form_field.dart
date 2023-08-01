@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:travelapp/functions/validator_functions.dart';
 import '../../constants/colors.dart';
 
-// ignore: must_be_immutable
 class FormFields extends StatelessWidget {
   FormFields(
       {super.key,
@@ -12,12 +11,14 @@ class FormFields extends StatelessWidget {
       this.function,
       this.keyboardType,
       this.value = '',
+      this.obscure = false,
       required this.textContol});
 
   String? textLabel;
   var keyboardType;
   var function;
-  String value;
+  final bool obscure;
+  final String value;
   TextEditingController textContol;
 
   bool ontaped = true;
@@ -30,6 +31,7 @@ class FormFields extends StatelessWidget {
           color: whiteSecondary,
           borderRadius: BorderRadius.all(Radius.circular(30))),
       child: TextFormField(
+        obscureText: obscure,
         keyboardType: keyboardType,
         controller: textContol,
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -46,9 +48,6 @@ class FormFields extends StatelessWidget {
             return null;
           }
         },
-        // onTapOutside: (event) {
-        //   changeColor();
-        // },
         decoration: InputDecoration(
           border: InputBorder.none,
           labelText: textLabel,
@@ -65,7 +64,7 @@ class FormFields extends StatelessWidget {
       return isAlphabet(text);
     } else if (function == isValidPassword) {
       return isValidPassword(text);
-    } else if (function == isValidTripName(text)) {
+    } else if (function == isValidTripName) {
       return isValidTripName(text);
     }
     return true;
