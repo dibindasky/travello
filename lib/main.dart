@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        primaryColor: Color.fromARGB(255, 255, 255, 255),
-        canvasColor: Color.fromARGB(255, 255, 255, 255),
+        primaryColor: const Color.fromARGB(255, 255, 255, 255),
+        canvasColor: const Color.fromARGB(255, 255, 255, 255),
       ),
       debugShowCheckedModeBanner: false,
       home: StreamBuilder<User?>(

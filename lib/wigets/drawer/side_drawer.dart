@@ -27,7 +27,7 @@ class _SideDrawerState extends State<SideDrawer> {
 
   _onShare(context) async {
     final box = context.findRenderObject() as RenderBox?;
-    await Share.share('flutter app',
+    await Share.share('https://play.google.com/store/apps/details?id=com.waywizard.travello',
         subject: '',
         sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
   }

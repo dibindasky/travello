@@ -20,9 +20,6 @@ class _SearchTextScreenState extends State<SearchTextScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Search'),
-      // ),
       body: SafeArea(
         child: Column(
           children: [
