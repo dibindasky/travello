@@ -50,7 +50,6 @@ dependencies:
   google_fonts: ^5.1.0
   salomon_bottom_bar: ^3.3.2
   provider: ^6.0.5
-  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -63,10 +62,6 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
-flutter_icons:
-  android: true
-  ios: true
-  image_path: "assets/logo/travello.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -86,7 +81,6 @@ flutter:
       - assets/images/map/
       - assets/images/catogorybackground/
       - assets/images/policy/
-      - assets/logo/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
