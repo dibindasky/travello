@@ -3,9 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travelapp/firebase_options.dart';
-import 'package:travelapp/local_db/local_db.dart';
 import 'package:travelapp/provider/bottom_bar.dart';
-import 'package:travelapp/screens/screen_splash.dart';
+
+import 'controller/sqflite/local_db.dart';
+import 'view/screens/screen_splash.dart';
 
 
 void main() async {
