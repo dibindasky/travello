@@ -7,11 +7,11 @@ import 'package:travelapp/provider/bottom_bar.dart';
 import 'package:travelapp/view/screens/sccreen_bottombar.dart';
 import 'package:travelapp/view/screens/trip_planner/ui/upcoming_list_show.dart';
 import 'package:travelapp/view/screens/wigets/drawer/side_drawer.dart';
-import 'package:travelapp/provider/wigets/popular/popular_slide.dart';
 
 import '../../wigets/appbar/appbar_maker.dart';
 import '../../wigets/catogery_container/catogery_container.dart';
 import '../../wigets/catogery_container/catogery_list.dart';
+import '../../wigets/popular/popular_slide.dart';
 
 class ScreenHome extends StatelessWidget {
   ScreenHome({super.key});

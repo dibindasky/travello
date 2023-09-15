@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:travelapp/constants/colors.dart';
@@ -87,7 +86,7 @@ class _PlanTileTripState extends State<PlanTileTrip> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
-                          image: CachedNetworkImageProvider(
+                          image: NetworkImage(
                               widget.destination.images[0]),
                           fit: BoxFit.cover),
                     ),

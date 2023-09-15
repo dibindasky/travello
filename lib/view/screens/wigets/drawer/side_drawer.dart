@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -109,7 +108,7 @@ class _SideDrawerState extends State<SideDrawer> {
                                         ],
                                         borderRadius: BorderRadius.circular(50),
                                         image: DecorationImage(
-                                            image: CachedNetworkImageProvider(
+                                            image: NetworkImage(
                                               snapshot.data!.get('profileimg'),
                                             ),
                                             fit: BoxFit.cover),

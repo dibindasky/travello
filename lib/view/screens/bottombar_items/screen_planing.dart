@@ -1,5 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travelapp/constants/colors.dart';
@@ -13,10 +12,10 @@ import 'package:travelapp/controller/trip_functions/fetch_trip.dart';
 import 'package:travelapp/view/screens/trip_planner/ui/calender.dart';
 import 'package:travelapp/controller/trip_functions/firebase_trip_planner.dart';
 import 'package:travelapp/controller/trip_functions/trip_list_maker.dart';
-import 'package:travelapp/provider/wigets/text_fields/text_form_field.dart';
 
 import '../../../controller/functions/validator_functions.dart';
 import '../../wigets/appbar/appbar_maker.dart';
+import '../../wigets/text_fields/text_form_field.dart';
 
 class ScreenPlanningTrip extends StatefulWidget {
   const ScreenPlanningTrip({
@@ -139,7 +138,7 @@ class _ScreenPlanningTripState extends State<ScreenPlanningTrip> {
                                     margin: const EdgeInsets.all(7),
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
-                                          image: CachedNetworkImageProvider(
+                                          image: NetworkImage(
                                               data.images[0]),
                                           fit: BoxFit.cover),
                                       color: blueSecondary,

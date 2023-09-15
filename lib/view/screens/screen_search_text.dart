@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/model/destination_model.dart';
@@ -70,7 +69,7 @@ class _SearchTextScreenState extends State<SearchTextScreen> {
                       return ListTile(
                         leading: CircleAvatar(
                             backgroundImage:
-                                CachedNetworkImageProvider(data.images[0])),
+                                NetworkImage(data.images[0])),
                         title: Text(data.name),
                         subtitle: Text(data.catogory),
                         onTap: () {

@@ -6,10 +6,10 @@ import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/model/destination_model.dart';
 import 'package:travelapp/controller/firebase/cred_firebase_admin_operations.dart';
-import 'package:travelapp/provider/wigets/text_fields/text_form_field.dart';
 
 import '../../wigets/lists/catogary_list_maker.dart';
 import '../../wigets/lists/lists_catogery.dart';
+import '../../wigets/text_fields/text_form_field.dart';
 
 // ignore: must_be_immutable
 class ScreenDetailsAdmin extends StatefulWidget {

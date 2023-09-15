@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/provider/wigets/favourite_list%20view/tile_favourite.dart';
@@ -26,18 +25,7 @@ class GridSorter extends StatelessWidget {
       valueListenable: dataManager.searchDestination,
       builder: (context, value, child) {
         if (value.isEmpty) {
-          return StreamBuilder(
-            stream: FirebaseFirestore.instance
-                .collection('appinfos')
-                .doc('CsvHNqlJ2PZFx0rrhbfK')
-                .snapshots(),
-            builder: (context, snapshot) {
-              return snapshot.hasData
-                  ? CachedNetworkImage(
-                      imageUrl: snapshot.data!.get('emptyimage'))
-                  : const Center(child: CircularProgressIndicator());
-            },
-          );
+          return const Center(child: Text('nothing to show'),);
         }
         return GridView.builder(
           itemCount: value.length,

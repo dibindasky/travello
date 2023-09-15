@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/view/screens/screen_login.dart';
-import 'package:travelapp/provider/wigets/text_fields/text_form_field.dart';
 
 import '../../controller/functions/login_functions.dart';
 import '../../controller/functions/validator_functions.dart';
 import '../wigets/text_fields/buttons/button_login.dart';
+import '../wigets/text_fields/text_form_field.dart';
 
 class ScreenSignup extends StatelessWidget {
   ScreenSignup({super.key});

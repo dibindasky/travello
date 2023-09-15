@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
@@ -70,7 +69,7 @@ class SlideShowListCard extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   image: DecorationImage(
-                                      image: CachedNetworkImageProvider(
+                                      image: NetworkImage(
                                           value[index].images[0]),
                                       fit: BoxFit.cover),
                                 ),

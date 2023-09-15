@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:math';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/model/destination_model.dart';
@@ -58,7 +57,7 @@ class TileFavourites extends StatelessWidget {
           ),
           image: DecorationImage(
               fit: BoxFit.cover,
-              image: CachedNetworkImageProvider(destination.images[0])),
+              image: NetworkImage(destination.images[0])),
         ),
         child: admin
             ? Column(

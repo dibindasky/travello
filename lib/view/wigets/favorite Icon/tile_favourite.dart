@@ -8,7 +8,7 @@ import 'package:travelapp/view/screens/admin/screen_detail_for_admin.dart';
 import 'package:travelapp/view/screens/screen_details.dart';
 
 import '../../../controller/firebase/fetch_firebase_data.dart';
-import '../favorite Icon/favourite.dart';
+import 'favourite.dart';
 
 class TileFavourites extends StatelessWidget {
   TileFavourites({
