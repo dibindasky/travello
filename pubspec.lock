@@ -25,30 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  cached_network_image:
-    dependency: "direct main"
-    description:
-      name: cached_network_image
-      sha256: fd3d0dc1d451f9a252b32d95d3f0c3c487bc41a75eba2e6097cb0b9c71491b15
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.2.3"
-  cached_network_image_platform_interface:
-    dependency: transitive
-    description:
-      name: cached_network_image_platform_interface
-      sha256: bb2b8403b4ccdc60ef5f25c70dead1f3d32d24b9d6117cfc087f496b178594a7
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
-  cached_network_image_web:
-    dependency: transitive
-    description:
-      name: cached_network_image_web
-      sha256: b8eb814ebfcb4dea049680f8c1ffb2df399e4d03bf7a352c775e26fa06e02fa0
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
   carousel_slider:
     dependency: "direct main"
     description:
@@ -262,30 +238,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_blurhash:
-    dependency: transitive
-    description:
-      name: flutter_blurhash
-      sha256: "05001537bd3fac7644fa6558b09ec8c0a3f2eba78c0765f88912882b1331a5c6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.7.0"
-  flutter_cache_manager:
-    dependency: transitive
-    description:
-      name: flutter_cache_manager
-      sha256: "8207f27539deb83732fdda03e259349046a39a4c767269285f449ade355d54ba"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.3.1"
-  flutter_floating_bottom_bar:
-    dependency: "direct main"
-    description:
-      name: flutter_floating_bottom_bar
-      sha256: "6bf970ebbf8aad8d4179c42379cc8b27b5321e0b9a2f93d580cfa5666d99b07a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -424,14 +376,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  liquid_pull_to_refresh:
-    dependency: "direct main"
-    description:
-      name: liquid_pull_to_refresh
-      sha256: "11e4cd8c5460085a31b479ec4e1cd063eb8e599f35684d57a44dafa1fd1f67f3"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   matcher:
     dependency: transitive
     description:
@@ -464,14 +408,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
-  octo_image:
+  nested:
     dependency: transitive
     description:
-      name: octo_image
-      sha256: "107f3ed1330006a3bea63615e81cf637433f5135a52466c7caa0e7152bca9143"
+      name: nested
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.0"
   path:
     dependency: transitive
     description:
@@ -576,14 +520,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.4"
-  rxdart:
-    dependency: transitive
+  provider:
+    dependency: "direct main"
     description:
-      name: rxdart
-      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
+      name: provider
+      sha256: cdbe7530b12ecd9eb455bdaa2fcb8d4dad22e80b8afb4798b41479d5ce26847f
       url: "https://pub.dev"
     source: hosted
-    version: "0.27.7"
+    version: "6.0.5"
+  salomon_bottom_bar:
+    dependency: "direct main"
+    description:
+      name: salomon_bottom_bar
+      sha256: e20abf2e449749432223a8b4e6647c212eef6c2b638e0ed8cc92eff9529c2b48
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.2"
   share_plus:
     dependency: "direct main"
     description:
