@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../controller/firebase/cred_firebase_admin_operations.dart';
 import '../../../controller/firebase/fetch_firebase_data.dart';
-import '../../../provider/wigets/favourite_list view/tile_favourite.dart';
+import '../favorite Icon/tile_favourite.dart';
 import '../lists/lists_catogery.dart';
 
 class GridAdmin extends StatelessWidget {

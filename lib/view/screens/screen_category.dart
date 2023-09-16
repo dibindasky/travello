@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/controller/firebase/cred_firebase_admin_operations.dart';
-import 'package:travelapp/provider/wigets/favourite_list%20view/tile_favourite.dart';
 
+import '../wigets/favorite Icon/tile_favourite.dart';
 import '../wigets/lists/lists_catogery.dart';
 
 // ignore: must_be_immutable

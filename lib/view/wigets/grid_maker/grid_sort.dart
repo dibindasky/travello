@@ -1,8 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:travelapp/provider/wigets/favourite_list%20view/tile_favourite.dart';
 
 import '../../../controller/firebase/fetch_firebase_data.dart';
+import '../favorite Icon/tile_favourite.dart';
 import '../lists/lists_catogery.dart';
 
 class GridSorter extends StatelessWidget {

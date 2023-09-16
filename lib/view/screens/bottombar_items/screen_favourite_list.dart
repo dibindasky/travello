@@ -4,12 +4,12 @@ import 'package:travelapp/constants/colors.dart';
 import 'package:travelapp/constants/sized_boxes.dart';
 import 'package:travelapp/controller/firebase/cred_firebase_admin_operations.dart';
 import 'package:travelapp/view/screens/wigets/drawer/side_drawer.dart';
-import 'package:travelapp/provider/wigets/favourite_list%20view/tile_favourite.dart';
 
 import '../../../controller/firebase/fetch_firebase_data.dart';
 import '../../../controller/sqflite/local_db.dart';
 import '../../wigets/appbar/appbar_maker.dart';
 import '../../wigets/catogery_container/catogery_list.dart';
+import '../../wigets/favorite Icon/tile_favourite.dart';
 
 class ScreenFavourite extends StatelessWidget {
   ScreenFavourite({super.key});
