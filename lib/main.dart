@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:travelapp/firebase_options.dart';
 import 'package:travelapp/provider/bottom_bar.dart';
 
-import 'controller/sqflite/local_db.dart';
-import 'view/screens/screen_splash.dart';
+import 'services/sqflite/local_db.dart';
+import 'views/screens/screen_splash.dart';
 
 
 void main() async {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       navigatorKey: navigatorKey,
       theme: ThemeData(
         primarySwatch: Colors.blue,
